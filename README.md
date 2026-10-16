@@ -20,3 +20,7 @@ cp <新 APK> public/runtick-latest.apk
 cp <新 APK> public/runtick-X.Y.Z.apk
 git add public && git commit -m "release: vX.Y.Z" && git push
 ```
+
+## GitHub Actions 部署
+
+`.github/workflows/deploy.yml` 在 `main` 的下载资源更新后部署到现有 Cloudflare Worker，保持固定下载链接不变，并下载线上 APK 与仓库文件逐字节核对。仓库需配置 `CLOUDFLARE_API_TOKEN` Secret（目标账号的 Workers Scripts Edit 权限）；账号 ID 已固定为现有账号，不创建或迁移服务。
